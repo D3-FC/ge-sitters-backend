@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateChildrenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('children', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('birthday');
 
-            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_id')->nullable();
-            $table->foreign('to_id')
+            $table->unsignedBigInteger('ad_id')->nullable();
+            $table->foreign('ad_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('set null')
-                ->onUpdate('set null');
-
-            $table->unsignedBigInteger('from_id')->nullable();
-            $table->foreign('from_id')
-                ->references('id')
-                ->on('users')
+                ->on('ads')
                 ->onDelete('set null')
                 ->onUpdate('set null');
         });
@@ -43,6 +36,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('children');
     }
 }

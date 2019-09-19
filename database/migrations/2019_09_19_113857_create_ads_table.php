@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateAdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,20 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('ads', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->timestamp('start_at');
+            $table->timestamp('end_at');
+            $table->ipAddress('address');
             $table->text('description');
+
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_id')->nullable();
-            $table->foreign('to_id')
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('set null')
-                ->onUpdate('set null');
-
-            $table->unsignedBigInteger('from_id')->nullable();
-            $table->foreign('from_id')
-                ->references('id')
-                ->on('users')
+                ->on('clients')
                 ->onDelete('set null')
                 ->onUpdate('set null');
         });
@@ -43,6 +39,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('advertiements');
     }
 }

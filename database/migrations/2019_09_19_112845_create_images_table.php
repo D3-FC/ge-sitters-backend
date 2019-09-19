@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,18 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('lg');
+            $table->string('md');
+            $table->string('sm');
 
-            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_id')->nullable();
-            $table->foreign('to_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('set null')
-                ->onUpdate('set null');
-
-            $table->unsignedBigInteger('from_id')->nullable();
-            $table->foreign('from_id')
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null')
@@ -43,6 +39,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('images');
     }
 }

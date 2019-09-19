@@ -18,13 +18,13 @@ class CreateContractsTable extends Migration
             $table->integer('child_count')->default(1);
             $table->float('price')->default(0);
             $table->text('description');
-            $table->dateTime('start_at');
-            $table->dateTime('end_at');
             $table->ipAddress('coords_x');
             $table->ipAddress('coords_y');
             $table->text('payment_method');
             $table->boolean('accepted_at')->nullable();
             $table->boolean('declined_at')->nullable();
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -33,6 +33,13 @@ class CreateContractsTable extends Migration
             $table->foreign('client_id')
                 ->references('id')
                 ->on('clients')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->unsignedBigInteger('worker_id')->nullable();
+            $table->foreign('worker_id')
+                ->references('id')
+                ->on('workers')
                 ->onDelete('set null')
                 ->onUpdate('set null');
         });
