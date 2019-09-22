@@ -20,17 +20,17 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_users')->nullable();
-            $table->foreign('to_id')
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('users')
+                ->on('clients')
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
-            $table->unsignedBigInteger('services')->nullable();
-            $table->foreign('from_id')
+            $table->unsignedBigInteger('worker_id')->nullable();
+            $table->foreign('worker_id')
                 ->references('id')
-                ->on('services')
+                ->on('workers')
                 ->onDelete('set null')
                 ->onUpdate('set null');
 

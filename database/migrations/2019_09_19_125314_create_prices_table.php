@@ -21,6 +21,12 @@ class CreatePricesTable extends Migration
             $table->integer('over_price')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('workers_id')
+                ->references('id')
+                ->on('workers')
+                ->onDelete('set null')
+                ->onUpdate('set null');
         });
     }
 

@@ -21,6 +21,12 @@ class CreateSchedulesTable extends Migration
             $table->boolean('to')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('workers_id')
+                ->references('id')
+                ->on('workers')
+                ->onDelete('set null')
+                ->onUpdate('set null');
         });
     }
 

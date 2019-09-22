@@ -16,11 +16,22 @@ class CreateNewsServicesTable extends Migration
         Schema::create('news_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('description');
-
-
-
-
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->unsignedBigInteger('to_users_id')->nullable();
+            $table->foreign('to_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->unsignedBigInteger('from_news_services_id')->nullable();
+            $table->foreign('from_id')
+                ->references('id')
+                ->on('news_services')
+                ->onDelete('set null')
+                ->onUpdate('set null');
         });
     }
 

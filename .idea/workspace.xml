@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ac8edc84-aa08-4b34-8670-5a60c9110d64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_15_165423_create_workers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_15_165423_create_workers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_18_175513_create_schedules_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_18_175513_create_schedules_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_19_125314_create_prices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_19_125314_create_prices_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_20_162421_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_20_162421_create_reviews_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_22_142525_create_news_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_22_142525_create_news_services_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +167,7 @@
       <workItem from="1568712763961" duration="14345000" />
       <workItem from="1568891989048" duration="4139000" />
       <workItem from="1569152691106" duration="7716000" />
+      <workItem from="1569164191187" duration="1534000" />
     </task>
     <servers />
   </component>
