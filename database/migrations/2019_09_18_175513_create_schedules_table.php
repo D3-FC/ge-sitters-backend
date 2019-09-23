@@ -22,7 +22,8 @@ class CreateSchedulesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('workers_id')
+            $table->unsignedBigInteger('worker_id')->nullable();
+            $table->foreign('worker_id')
                 ->references('id')
                 ->on('workers')
                 ->onDelete('set null')
