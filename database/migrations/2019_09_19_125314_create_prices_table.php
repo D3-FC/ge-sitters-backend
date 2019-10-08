@@ -22,8 +22,7 @@ class CreatePricesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('worker_id')->nullable();
-            $table->foreign('worker_id')
+            $table->foreign('workers_id')
                 ->references('id')
                 ->on('workers')
                 ->onDelete('set null')

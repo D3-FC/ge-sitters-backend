@@ -17,7 +17,7 @@ class CreateAdsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamp('start_at');
             $table->timestamp('end_at');
-            $table->ipAddress('address');
+            $table->string('address', 50);
             $table->text('description');
 
             $table->timestamps();

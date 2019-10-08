@@ -15,8 +15,8 @@ class CreateChildrenTable extends Migration
     {
         Schema::create('children', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('birthday');
 
+            $table->date('birthday');
             $table->timestamps();
             $table->softDeletes();
 

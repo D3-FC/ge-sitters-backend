@@ -19,17 +19,17 @@ class CreateNewsServicesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_id')->nullable();
+            $table->unsignedBigInteger('to_users_id')->nullable();
             $table->foreign('to_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
-            $table->unsignedBigInteger('from_id')->nullable();
+            $table->unsignedBigInteger('from_news_services_id')->nullable();
             $table->foreign('from_id')
                 ->references('id')
-                ->on('users')
+                ->on('news_services')
                 ->onDelete('set null')
                 ->onUpdate('set null');
         });

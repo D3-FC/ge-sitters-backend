@@ -15,14 +15,14 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('child_count')->default(1);
-            $table->float('price')->default(0);
+            $table->integer('child_count');
+            $table->decimal('price', 13, 5);
             $table->text('description');
-            $table->ipAddress('coords_x');
-            $table->ipAddress('coords_y');
-            $table->text('payment_method');
-            $table->boolean('accepted_at')->nullable();
-            $table->boolean('declined_at')->nullable();
+            $table->decimal('coords_x', 10,6);
+            $table->decimal('coords_y', 10,6);
+            $table->string('payment_method', 100);
+            $table->timestamp('accepted_at')->nullable();
+            $table->timestamp('declined_at')->nullable();
             $table->timestamp('start_at')->nullable();
             $table->timestamp('end_at')->nullable();
 

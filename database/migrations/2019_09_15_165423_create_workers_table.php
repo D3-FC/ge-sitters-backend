@@ -33,8 +33,8 @@ class CreateWorkersTable extends Migration
             $table->integer('coords_y')->nullable();
 
 
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')
+            $table->unsignedBigInteger('users_id')->nullable();
+            $table->foreign('users_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null')
