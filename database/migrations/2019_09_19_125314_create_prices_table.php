@@ -16,9 +16,9 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('child_count')->default(1);
-            $table->float('value')->default(0);
-            $table->integer('over_price')->default(0);
+            $table->tinyInteger('child_count');
+            $table->decimal('value', 13, 5);
+            $table->decimal('over_price', 13, 5);
             $table->timestamps();
             $table->softDeletes();
 

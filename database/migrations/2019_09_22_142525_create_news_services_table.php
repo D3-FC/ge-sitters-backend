@@ -29,7 +29,7 @@ class CreateNewsServicesTable extends Migration
             $table->unsignedBigInteger('from_id')->nullable();
             $table->foreign('from_id')
                 ->references('id')
-                ->on('news_services')
+                ->on('users')
                 ->onDelete('set null')
                 ->onUpdate('set null');
         });

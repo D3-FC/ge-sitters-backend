@@ -17,8 +17,8 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('day')->nullable();
-            $table->boolean('from')->nullable();
-            $table->boolean('to')->nullable();
+            $table->time('from')->nullable();
+            $table->time('to')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
