@@ -25,6 +25,7 @@ class CreateNewsServicesTable extends Migration
                 ->on('users')
                 ->onDelete('set null')
                 ->onUpdate('set null');
+<<<<<<< Updated upstream
 
             $table->unsignedBigInteger('from_id')->nullable();
             $table->foreign('from_id')
@@ -32,6 +33,8 @@ class CreateNewsServicesTable extends Migration
                 ->on('users')
                 ->onDelete('set null')
                 ->onUpdate('set null');
+=======
+>>>>>>> Stashed changes
         });
     }
 

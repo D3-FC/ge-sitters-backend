@@ -15,6 +15,7 @@ class CreateWorkersTable extends Migration
     {
         Schema::create('workers', function (Blueprint $table) {
             $table->bigIncrements('id');
+<<<<<<< Updated upstream
             $table->tinyInteger('min_child_age');
             $table->tinyInteger('max_child_age');
             $table->decimal('meeting_price', 13, 5);
@@ -29,6 +30,25 @@ class CreateWorkersTable extends Migration
             $table->boolean('can_overwork');
             $table->date('birthday')->nullable();
             $table->timestamp('mobile_number_confirmed_at')->nullable();
+=======
+            $table->boolean('birthday')->nullable();
+            $table->text('description')->nullable();
+            $table->string('animal_relationship')->nullable();
+            $table->float('meeting_price')->default(0);
+            $table->boolean('has_card_payment')->nullable();
+
+            $table->boolean('mobile_number_confirmed_at')->nullable();
+
+            $table->boolean('passport_confirmed')->nullable();
+            $table->integer('min_child_age')->default(0);
+            $table->integer('max_child_age')->default(0);
+            $table->boolean('sit_special_children')->nullable();
+            $table->boolean('has_training_school')->nullable();
+            $table->boolean('can_overwork')->nullable();
+            $table->integer('coords_x')->nullable();
+            $table->integer('coords_y')->nullable();
+
+>>>>>>> Stashed changes
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
