@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "3ba7ee70-22b3-470f-bf3a-fac49bf3ae3c",
+		"name": "Sitters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d143c9fd-3090-4817-9eaf-986b28c1d896",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"access_token\", data.access_token);",
+							"postman.setEnvironmentVariable(\"refresh_token\", data.refresh_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "Don't change",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "2",
+							"description": "Dont' change. This is correct ID at oauth_clients table if seeded correctly",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "oUUYF2q4X5NjPTXYluolQ70B8qfTKvX5uhjeSgyn",
+							"description": "Copy from database: oauth_clients.secret from id#2",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "d3-fc@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "bublik720",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "sitters.local/oauth/token",
+					"host": [
+						"sitters",
+						"local"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logged in User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5703be7-4830-4d99-9550-2147b6e00dc2",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"user_id\", data.data.id);",
+							"postman.setEnvironmentVariable(\"user_email\", data.data.email);",
+							"",
+							"if(data.data.organization) {",
+							"    postman.setEnvironmentVariable(\"organization_id\", data.data.organization.id);",
+							"    postman.setEnvironmentVariable(\"template_practice\", data.data.organization.templates.practice);",
+							"    postman.setEnvironmentVariable(\"template_exercise\", data.data.organization.templates.exercise);",
+							"",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY2NTI0MjRjZjcwOTkyOWU2YzA3NzA4ZTg3YzBlYjQyYTU0M2JhMWYzNjM0MzMwNzVkN2MxMzk0N2YxODc1NGYzOTMyZWEwOTI1ODNhMThkIn0.eyJhdWQiOiIyIiwianRpIjoiNjY1MjQyNGNmNzA5OTI5ZTZjMDc3MDhlODdjMGViNDJhNTQzYmExZjM2MzQzMzA3NWQ3YzEzOTQ3ZjE4NzU0ZjM5MzJlYTA5MjU4M2ExOGQiLCJpYXQiOjE1NzA3MjU3MzMsIm5iZiI6MTU3MDcyNTczMywiZXhwIjoxNjAyMzQ4MTMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Dg7yxfBCXtWVKlh0Xuhe_uhCSbyt15vBK3xr9p-xGNcEh4Ydgb4kPbs0YKux59UPk7d_SK8Pb-Bvfh2TDjEbSYjR168724PK8FVtzhMLOHOMr6yJbPLGX_ao1ElQp7sbraZf1E8ZGGuwskOsTqW8OVA0k4tbdrp5GICiB4iNsYjEgHEwY6AE3-6pMYrEFzLVrNKhz01OzR0lUM6jCXa4RPjHHdvk9o7qneBIuRGsPGitEshZDBDIlMKTxS5tPFf_pu2_J9o-bJsi8gmj32VPNiAr_t9ZE7JasIAdv8ZLp3sinwzbHvkbp-cZ6xtrWwapA2oBd-JkSU0ubJXtnJe3uOK1PimSao1DpEDRaRg28synN_AKdGQuhyRw7XxyLXaXrDe5dOZfTkjpumKV1Gp-4nwgm9HuSwN5C-3TbtLvDviJClMD-2N1szhCHRqF8WoOEwrY6Xc7br4ZxuVudpTB_FMINIzf_Bkf0ddymobzX0Gr0GKfLywGuLpqmvzTR43DQTs7TgmdcbnBk7UGAY9L9k7Aum4VqMVzCopAKLmaHiiDthzdDy1jTuXTzh1Kj8Kj8FGhvHl6_VQAq7ddUk1F9fdnUfes7NaYgFLu9loSfa7HFqZCHjMxp02Gakea5UI0bduv11IRmOQBePqABZpjBt8tK6uJooUDMKj3RFtVphY"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "sitters.local/api/users/me",
+					"host": [
+						"sitters",
+						"local"
+					],
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5703be7-4830-4d99-9550-2147b6e00dc2",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"user_id\", data.data.id);",
+							"postman.setEnvironmentVariable(\"user_email\", data.data.email);",
+							"",
+							"if(data.data.organization) {",
+							"    postman.setEnvironmentVariable(\"organization_id\", data.data.organization.id);",
+							"    postman.setEnvironmentVariable(\"template_practice\", data.data.organization.templates.practice);",
+							"    postman.setEnvironmentVariable(\"template_exercise\", data.data.organization.templates.exercise);",
+							"",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY2NTI0MjRjZjcwOTkyOWU2YzA3NzA4ZTg3YzBlYjQyYTU0M2JhMWYzNjM0MzMwNzVkN2MxMzk0N2YxODc1NGYzOTMyZWEwOTI1ODNhMThkIn0.eyJhdWQiOiIyIiwianRpIjoiNjY1MjQyNGNmNzA5OTI5ZTZjMDc3MDhlODdjMGViNDJhNTQzYmExZjM2MzQzMzA3NWQ3YzEzOTQ3ZjE4NzU0ZjM5MzJlYTA5MjU4M2ExOGQiLCJpYXQiOjE1NzA3MjU3MzMsIm5iZiI6MTU3MDcyNTczMywiZXhwIjoxNjAyMzQ4MTMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Dg7yxfBCXtWVKlh0Xuhe_uhCSbyt15vBK3xr9p-xGNcEh4Ydgb4kPbs0YKux59UPk7d_SK8Pb-Bvfh2TDjEbSYjR168724PK8FVtzhMLOHOMr6yJbPLGX_ao1ElQp7sbraZf1E8ZGGuwskOsTqW8OVA0k4tbdrp5GICiB4iNsYjEgHEwY6AE3-6pMYrEFzLVrNKhz01OzR0lUM6jCXa4RPjHHdvk9o7qneBIuRGsPGitEshZDBDIlMKTxS5tPFf_pu2_J9o-bJsi8gmj32VPNiAr_t9ZE7JasIAdv8ZLp3sinwzbHvkbp-cZ6xtrWwapA2oBd-JkSU0ubJXtnJe3uOK1PimSao1DpEDRaRg28synN_AKdGQuhyRw7XxyLXaXrDe5dOZfTkjpumKV1Gp-4nwgm9HuSwN5C-3TbtLvDviJClMD-2N1szhCHRqF8WoOEwrY6Xc7br4ZxuVudpTB_FMINIzf_Bkf0ddymobzX0Gr0GKfLywGuLpqmvzTR43DQTs7TgmdcbnBk7UGAY9L9k7Aum4VqMVzCopAKLmaHiiDthzdDy1jTuXTzh1Kj8Kj8FGhvHl6_VQAq7ddUk1F9fdnUfes7NaYgFLu9loSfa7HFqZCHjMxp02Gakea5UI0bduv11IRmOQBePqABZpjBt8tK6uJooUDMKj3RFtVphY"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "sitters.local/api/users?first_name=Vasia",
+					"host": [
+						"sitters",
+						"local"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "Vasia"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
