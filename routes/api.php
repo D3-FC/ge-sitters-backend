@@ -19,4 +19,5 @@ Route::middleware('auth:api')->group(function (){
     Route::get('/users', 'UserController@index');
 
     Route::get('/workers', 'WorkerController@index');
+    Route::get('/ads', 'AdsController@index');
 });
