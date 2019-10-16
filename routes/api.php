@@ -24,5 +24,14 @@ Route::middleware('auth:api')->group(function (){
     Route::delete('/users', 'UserController@destroyMany');
 
     Route::get('/workers', 'WorkerController@index');
+
     Route::get('/ads', 'AdsController@index');
+    Route::post('/ads', 'AdsController@store');
+    Route::put('/ads/{ads}', 'AdsController@update');
+    Route::delete('/ads/{ads}', 'AdsController@destroy');
+    Route::get('/ads/{ads}', 'AdsController@show');
+
+
+
+
 });
