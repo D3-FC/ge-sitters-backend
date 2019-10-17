@@ -29,7 +29,7 @@ class UserController extends Controller
         return $user;
     }
 
-    public function update(int $user, Request $request)
+    public function update(int $user, UserStoreRequest $request)
     {
         $user = User::findOrFail($user);
         $user->first_name = $request->input('first_name');

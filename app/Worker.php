@@ -48,7 +48,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Worker whereUserId($value)
  * @mixin \Eloquent
  */
-class Worker extends Model
+class Worker2 extends Model
 {
-    //
+    protected $table = 'workers';
 }

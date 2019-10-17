@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdsStoreRequest extends FormRequest
+class AdSaveRequest extends FormRequest
 {
 
     /**
@@ -16,7 +16,7 @@ class AdsStoreRequest extends FormRequest
     {
         return [
             'address' => 'required|min:3|max:50',
-            'description' => 'required|max:10000',
+            'description' => 'required|max:10000|min:3',
             'start_at' => 'required|date|after:today',
             'end_at' => 'required|date|after:start_at',
         ];

@@ -17,30 +17,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
  * @property int|null $client_id
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads filter($params)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereClientId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereEndAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereStartAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ads whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad filter($params)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereEndAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereStartAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ad whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Ads extends Model
+class Ad extends Model
 {
-    protected $fillable = [
-        'start_at',
-        'end_at',
-        'address',
-        'description',
-    ];
-
     protected $attributes = [
         'start_at'  =>'',
         'end_at'  =>'',
@@ -69,4 +62,5 @@ class Ads extends Model
        }
        return $builder;
    }
+
 }
