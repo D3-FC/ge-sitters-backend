@@ -25,6 +25,7 @@ class UserController extends Controller
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->mobile = $request->input('mobile');
+        $user->user_city = $request->input('user_city');
         $user->save();
         return $user;
     }

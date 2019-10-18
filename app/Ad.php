@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Ads
+ * App\Ad
  *
  * @property int $id
  * @property string $start_at
@@ -34,6 +34,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Ad extends Model
 {
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+
     protected $attributes = [
         'start_at'  =>'',
         'end_at'  =>'',

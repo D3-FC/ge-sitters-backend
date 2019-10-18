@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('mobile')->nullable();
+            $table->string('user_city')->nullable();
             $table->boolean('notify_sms')->nullable();
             $table->boolean('notify_email')->nullable();
             $table->boolean('notify_cabinet')->nullable();

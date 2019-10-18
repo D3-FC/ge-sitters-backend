@@ -6,7 +6,7 @@ use App\Ad;
 use App\Http\Requests\AdSaveRequest;
 use Illuminate\Http\Request;
 
-class AdsController extends Controller
+class AdController extends Controller
 {
     public function index(Request $request)
     {

@@ -25,11 +25,18 @@ Route::middleware('auth:api')->group(function (){
 
     Route::get('/workers', 'WorkerController@index');
 
-    Route::get('/ads', 'AdsController@index');
-    Route::post('/ads', 'AdsController@store');
-    Route::put('/ads/{ads}', 'AdsController@update');
-    Route::delete('/ads/{ads}', 'AdsController@destroy');
-    Route::get('/ads/{ads}', 'AdsController@show');
+    Route::get('/ads', 'AdController@index');
+    Route::post('/ads', 'AdController@store');
+    Route::put('/ads/{ads}', 'AdController@update');
+    Route::delete('/ads/{ads}', 'AdController@destroy');
+    Route::get('/ads/{ads}', 'AdController@show');
+
+    Route::get('/NewsServices', 'NewServiceController@index');
+    Route::post('/NewsServices', 'NewServiceController@store');
+    Route::put('/NewsServices/{newsService}', 'NewServiceController@update');
+
+    Route::get('/Messages', 'MessageController@index');
+    Route::post('/Messages', 'MessageController@store');
 
 
 

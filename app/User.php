@@ -52,6 +52,8 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User filter($params)
+ * @property string|null $user_city
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUserCity($value)
  */
 class User extends Authenticatable
 {
@@ -91,13 +93,16 @@ class User extends Authenticatable
       'name'  =>'',
       'last_name'  =>'',
       'mobile'  =>'',
+      'user_city'  =>'',
       'notify_sms'  =>false,
       'notify_email'  =>false,
       'notify_cabinet'  =>false,
       'email'  =>'',
       'password'  =>'',
     ];
-
+    /**
+     * @var array|string|null
+     */
 
     public function scopeFilter(Builder $builder, array $params): Builder
     {
