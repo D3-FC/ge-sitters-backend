@@ -26,6 +26,8 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->mobile = $request->input('mobile');
         $user->user_city = $request->input('user_city');
+        $user->client()->create();
+
         $user->save();
         return $user;
     }

@@ -54,6 +54,7 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User filter($params)
  * @property string|null $user_city
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUserCity($value)
+ * @property-read \App\Client $client
  */
 class User extends Authenticatable
 {
@@ -118,5 +119,11 @@ class User extends Authenticatable
 
         return $builder;
     }
+
+    public function client()
+    {
+        return $this->hasOne('App\Client');
+    }
+
 
 }

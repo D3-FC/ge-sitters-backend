@@ -38,7 +38,13 @@ Route::middleware('auth:api')->group(function (){
     Route::get('/Messages', 'MessageController@index');
     Route::post('/Messages', 'MessageController@store');
 
+    Route::get('/contracts', 'ContractController@index');
+    Route::post('/contracts', 'ContractController@store');
+    Route::put('/contracts/{contract}', 'ContractController@update');
+    Route::delete('/contracts/{contract}', 'ContractController@destroy');
+    Route::get('/contracts/{contract}', 'ContractController@show');
 
 
-
+    Route::get('/clients', 'ClientController@index');
+    Route::post('/clients', 'ClientController@store');
 });
