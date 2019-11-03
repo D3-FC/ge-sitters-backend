@@ -10,8 +10,14 @@ class ContractController extends Controller
 {
     public function index(Request $request)
     {
-        return Contract::filter($request->all())->get();
+        if(\Auth::user()->client)
+        {
+            return \Auth::user()->client->contracts()->get();
+        }
+            return Contract::filter($request->all())->get();
+
     }
+
     public function store(ContractStoreRequest $request)
     {
         $contract = new Contract();

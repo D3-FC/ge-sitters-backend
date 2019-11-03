@@ -12,8 +12,8 @@ class ClientController extends Controller
         return Client::filter($request->all())->get();
     }
 
-//    public function store(Request $request)
-//    {
-//        $client = new Client();
-//    }
+    public function store(Request $request)
+    {
+        \Auth::user()->client()->create($request->only(''));
+    }
 }

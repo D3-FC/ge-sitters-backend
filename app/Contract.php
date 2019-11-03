@@ -45,6 +45,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereWorkerId($value)
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract filter($params)
+ * @property-read \App\Client|null $client
  */
 class Contract extends Model
 {
@@ -62,5 +63,10 @@ class Contract extends Model
         }
 
         return $builder;
+    }
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
     }
 }

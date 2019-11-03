@@ -26,15 +26,11 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \App\User $client
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Client filter($params)
+ * @property-read \App\Contract $contracts
+ * @property-read int|null $contracts_count
  */
 class Client extends Model
 {
-    protected $fillable = [
-        'user_id',
-    ];
-    protected $attributes = [
-        'user_id' => '',
-    ];
 
     public function scopeFilter(Builder $builder, array $params): Builder
     {
@@ -51,5 +47,10 @@ class Client extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function contracts()
+    {
+        return $this->hasMany('App\Contract');
     }
 }
