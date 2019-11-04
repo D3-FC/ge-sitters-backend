@@ -44,7 +44,9 @@ Route::middleware('auth:api')->group(function (){
     Route::delete('/contracts/{contract}', 'ContractController@destroy');
     Route::get('/contracts/{contract}', 'ContractController@show');
 
-
     Route::get('/clients', 'ClientController@index');
     Route::post('/clients', 'ClientController@store');
+
+    Route::get('/userFavorites', 'UserFavoriteController@index');
+    Route::post('/userFavorites', 'UserFavoriteController@store');
 });
