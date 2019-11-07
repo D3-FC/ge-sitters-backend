@@ -26,13 +26,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserFavorite whereToId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserFavorite whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $client_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\UserFavorite whereClientId($value)
+ * @property-read \App\Client|null $client
  */
 class UserFavorite extends Model
 {
 
 
-    public function user()
+    public function client()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Client');
     }
 }

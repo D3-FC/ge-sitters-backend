@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use Illuminate\Http\Request;
 
 class UserFavoriteController extends Controller
 {
     public function index(Request $request)
     {
-        $userId = \Auth::user()->id;
-        return \Auth::user()->userFavorite()->where('from_id',$userId)->get();
+//        $userID = \Auth::id();
+//        return Client::whereUserId($userID)->value('id');
+        return \Auth::user()->favorite()->paginate();
     }
 
     public function store(Request $request)
     {
-        \Auth::user()->userFavorite()->create($request->only(''));
+        //$client = new Client();
+        //$userID = \Auth::id();
+        //$clientId = Client::whereUserId($userID);
+        //$client->favorite()->create($request->only(''));
+        \Auth::user()->favorite()->create($request->only(''));
+
     }
 }

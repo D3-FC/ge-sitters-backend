@@ -20,19 +20,13 @@ class CreateUserFavoritesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('to_id')->nullable();
-            $table->foreign('to_id')
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('users')
+                ->on('clients')
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
-            $table->unsignedBigInteger('from_id')->nullable();
-            $table->foreign('from_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('set null')
-                ->onUpdate('set null');
         });
     }
 

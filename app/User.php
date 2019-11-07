@@ -126,9 +126,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Client');
     }
 
-    public function userFavorite()
+    public function favorite()
     {
-        return $this->hasOne('App\UserFavorite','from_id');
+        return $this->hasOne('App\UserFavorite','client_id');
     }
 
 }

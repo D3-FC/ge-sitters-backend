@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Client filter($params)
  * @property-read \App\Contract $contracts
  * @property-read int|null $contracts_count
+ * @property-read \App\UserFavorite $favorite
  */
 class Client extends Model
 {
@@ -52,5 +53,10 @@ class Client extends Model
     public function contracts()
     {
         return $this->hasMany('App\Contract');
+    }
+
+    public function favorite()
+    {
+        return $this->hasOne('App\UserFavorite');
     }
 }
